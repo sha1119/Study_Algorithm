@@ -8,7 +8,7 @@ public class No_1065 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println(arithmetic_sequence(Integer.parseInt(br.readLine())));
+        System.out.print(arithmetic_sequence(Integer.parseInt(br.readLine())));
     }
 
     public static int arithmetic_sequence(int num) {
@@ -25,11 +25,11 @@ public class No_1065 {
             }
 
             for (int i = 100; i <= num; i++) {
-                int hun = i / 100;
+                int hundred = i / 100;
                 int ten = (i / 10) % 10;
-                int one = 1 % 10;
+                int one = i % 10;
 
-                if((hun - ten) == (ten - one)) {
+                if((hundred - ten) == (ten - one)) {
                     cnt++;
                 }
             }
