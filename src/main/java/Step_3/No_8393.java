@@ -1,16 +1,18 @@
 package Step_3;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class No_8393 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int a = scanner.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(bufferedReader.readLine());
 
-        int sum = 0;
+        int x = 0;
         for (int i = 0; i <= a; i++) {
-            sum += i;
+            x += i;
         }
-        System.out.println(sum);
+        System.out.println(x);
     }
 }
