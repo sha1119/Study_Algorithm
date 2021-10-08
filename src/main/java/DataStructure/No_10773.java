@@ -24,9 +24,8 @@ public class No_10773 {
             }
         }
 
-        while (true) {
-            if (stack.isEmpty()) break;
-            else sum += stack.pop();
+        while (!stack.isEmpty()) {
+            sum += stack.pop();
         }
 
         System.out.println(sum);
