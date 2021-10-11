@@ -30,7 +30,7 @@ public class No_17413 {
                 }
                 result.append(input.charAt(i));
             } else {
-                if (check == true) {
+                if (check) {
                     result.append(input.charAt(i));
                 } else {
                     stack.push(input.charAt(i));
