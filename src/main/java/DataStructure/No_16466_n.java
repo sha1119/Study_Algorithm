@@ -28,7 +28,7 @@ public class No_16466_n {
                 break;
             }
             else {
-                ticketing.remove();
+                ticketing.poll();
                 count++;
             }
         }
