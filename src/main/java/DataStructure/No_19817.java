@@ -13,23 +13,33 @@ public class No_19817 {
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         StringTokenizer stringTokenizer;
         int maxEmployees;
+        int salaryGap = 0;
+        int employers = 0;
+        int employerNum;
+        int salary;
         int sum = 0;
 
 
         int company = Integer.parseInt(bufferedReader.readLine());
 
-        for (int employerNum = 0; employerNum < company; employerNum++) {
+        for (employerNum = 0; employerNum < company; employerNum++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-            int employers = Integer.parseInt(stringTokenizer.nextToken());
+            employers = Integer.parseInt(stringTokenizer.nextToken());
 
-            for (int salary = 0; salary < employers; salary++) {
+            for (salary = 0; salary < employers; salary++) {
                 pq.offer(Integer.parseInt(stringTokenizer.nextToken()));
             }
-
-            maxEmployees = pq.poll();
-
-            sum += (maxEmployees - pq.poll()) * employerNum;
         }
+        maxEmployees = pq.peek();
+
+        for (employerNum = 0; employerNum < company; employerNum++) {
+            for (salary = 0; salary < employers; salary++) {
+                pq.poll();
+            }
+            salaryGap = (maxEmployees - pq.peek()) * employers;
+            sum += salaryGap;
+        }
+
         System.out.println(sum);
     }
 }
