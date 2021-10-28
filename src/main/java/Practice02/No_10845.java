@@ -3,20 +3,21 @@ package Practice02;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.PriorityQueue;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class No_10845 {
-    public static PriorityQueue<Integer> pq = new PriorityQueue<>();
-
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder stringBuilder = new StringBuilder();
+        Queue<Integer> q = new LinkedList<>();
 
         int N = Integer.parseInt(bufferedReader.readLine());
 
         StringTokenizer stringTokenizer;
         int x = 0;
+
         for (int i = 0; i < N; i++) {
             String command = bufferedReader.readLine();
 
@@ -24,33 +25,33 @@ public class No_10845 {
                 stringTokenizer = new StringTokenizer(command);
                 stringTokenizer.nextToken();
                 int X = Integer.parseInt(stringTokenizer.nextToken());
-                pq.offer(X);
+                q.offer(X);
                 x = X;
             } else if (command.equals("pop")) {
-                if (pq.isEmpty()) {
+                if (q.isEmpty()) {
                     stringBuilder.append(-1).append('\n');
                 } else {
-                    pq.poll();
+                    stringBuilder.append(q.poll()).append('\n');
                 }
-            } else if (command.contains("size")) {
-                stringBuilder.append(pq.size()).append('\n');
-            } else if (command.contains("empty")) {
-                if (pq.isEmpty()) {
+            } else if (command.equals("size")) {
+                stringBuilder.append(q.size()).append('\n');
+            } else if (command.equals("empty")) {
+                if (q.isEmpty()) {
                     stringBuilder.append(1).append('\n');
                 } else {
                     stringBuilder.append(0).append('\n');
                 }
-            } else if (command.contains("front")) {
-                if (pq.isEmpty()) {
+            } else if (command.equals("front")) {
+                if (q.isEmpty()) {
                     stringBuilder.append(-1).append('\n');
                 } else {
-                    stringBuilder.append(pq.poll()).append('\n');
+                    stringBuilder.append(q.peek()).append('\n');
                 }
-            } else if (command.contains("back")) {
-                if (pq.isEmpty()) {
+            } else if (command.equals("back")) {
+                if (q.isEmpty()) {
                     stringBuilder.append(-1).append('\n');
                 } else {
-                    stringBuilder.append(pq.peek()).append('\n');
+                    stringBuilder.append(x).append('\n');
                 }
             }
         }
